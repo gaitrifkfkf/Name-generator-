@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #fff5d7;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .scene {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            min-height: 600px;
+            margin-bottom: 20px;
+        }
+
+        .sun {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            width: 80px;
+            height: 80px;
+            background: #FFD700;
+            border-radius: 50%;
+            box-shadow: 0 0 50px #FFD700;
+        }
+
+        .pool {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 150px;
+            background: #87CEEB;
+            border-radius: 50%/25%;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+        }
+
+        .grass {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100px;
+            background: #90EE90;
+            z-index: -1;
+        }
+
+        .dog {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: #FFF;
+            border-radius: 50%;
+        }
+
+        .dog:nth-child(1) { bottom: 120px; left: 100px; }
+        .dog:nth-child(2) { bottom: 140px; right: 120px; }
+
+        .ice-cream {
+            position: absolute;
+            font-size: 40px;
+        }
+
+        .generator-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+
+        button {
+            background: #FF69B4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        #result {
+            font-size: 24px;
+            margin: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="scene">
+        <div class="sun"></div>
+        <div class="grass"></div>
+        <div class="pool"></div>
+        <div class="dog">🐕</div>
+        <div class="dog">🐶</div>
+        <div class="ice-cream" style="top: 100px; left: 100px;">🍦</div>
+        <div class="ice-cream" style="top: 150px; right: 100px;">🍨</div>
+    </div>
+
+    <div class="generator-container">
+        <h1>✨ Cute Name Generator ✨</h1>
+        <button onclick="generateName()">Generate Name</button>
+        <div id="result">Click the button to generate a name!</div>
+    </div>
+
+    <script>
+        const firstNames = ["Luna", "Sunny", "Milo", "Daisy", "Charlie", "Ruby", "Leo", "Lily", "Max", "Sophie"];
+        const lastNames = ["Star", "Bloom", "Heart", "Sweet", "Sky", "Rose", "Joy", "Light", "Dream", "Love"];
+
+        function generateName() {
+            const firstName = firstNames[Math.floor(Math.random() * firstNames.length)];
+            const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+            document.getElementById('result').textContent = `${firstName} ${lastName}`;
+        }
+    </script>
+</body>
+</html>
